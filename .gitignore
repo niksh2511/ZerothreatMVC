@@ -1,0 +1,43 @@
+# Ignore Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pdb
+
+# Ignore build output
+bin/
+obj/
+
+# Ignore NuGet packages
+*.nuget.props
+*.nuget.targets
+*.lock
+packages/
+*.bin
+*.cache
+
+# Ignore .NET Core dependencies
+project.lock.json
+.project
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore ReSharper and Rider files
+_ReSharper*/
+*.resharper*
+*.dotCover
+*.teamcity
+*.idea
+*.sln.iml
+
+# Ignore local application settings
+appsettings.json
+appsettings.Development.json
+launchSettings.json
+
+# Ignore build artifacts
+*.dll
+*.exe

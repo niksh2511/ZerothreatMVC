@@ -1,0 +1,53 @@
+﻿@using System.Web.UI.WebControls
+@model HealthSupportApp.Models.ContactUsModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div>
+    <div class="text-center mx-auto mt-5" style="width: 50%;">
+        <h2>Contact us</h2>
+    </div>
+    @using (Html.BeginForm("Submit", "ContactUs", FormMethod.Post, new { id = "contactForm" }))
+    {
+        <div class="container mt-4 w-25">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    @Html.TextBoxFor(model => model.Name)
+                    @*<input type="text" class="form-control" id="name" name="name" required="" value="">*@
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    @Html.TextBoxFor(model => model.Email)
+                    @*<input type="email" class="form-control" id="email" name="email" value="">*@
+                </div>
+                <div class="mb-3">
+                    <label for="msg" class="form-label">Message</label>
+                    @Html.TextBoxFor(model => model.Message)
+                    @*<textarea type="text" class="form-control" id="msg" name="msg" required=""></textarea>*@
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    }
+
+    @if(@ViewBag.contactDetail.Message != null) 
+    { 
+        <div class="card container mt-4 w-25">
+            <div class="card-body">
+                <h5 class="card-title">Our Team will contact you in 5-7 days</h5>
+                <div>
+                    <label for="name" class="form-label">Name:</label> @ViewBag.contactDetail.Name <br>
+                    <label for="email" class="form-label">Email:</label> @ViewBag.contactDetail.Email <br>
+                    <label for="msg" class="form-label">Message:</label> @ViewBag.contactDetail.Message <br>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+
+</div>

@@ -1,0 +1,109 @@
+@using System.Web.UI.WebControls
+@model HealthSupportApp.Models.ProductModel.ProductList
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div>
+    <h1>Product Data</h1>
+    <div>
+        <input type="text" id="searchInput" />
+        <button id="searchButton">Search</button>
+        <a class="btn btn-outline-primary" id="productForm" href="@Url.Action("AddProduct", "Product", new { id = 0 })">Add Product</a>
+    </div>
+    <div id="validateRequest"></div>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Product Category</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (HealthSupportApp.Models.ProductModel.Product product in Model.Products)
+            {
+                <tr>
+                    <td>@product.ProductName</td>
+                    <td>@product.ProductDescription</td>
+                    <td>@product.ProductCategory</td>
+                    <td>
+                        <a href="@Url.Action("/GetProduct")?id=@product.ProductId" class="btn btn-info">
+                            <span class="fa fa-info"></span> View
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("/AddProduct")?id=@product.ProductId" class="btn btn-warning">
+                            <span class="fa fa-edit"></span> Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("/DeleteProduct")?id=@product.ProductId" class="btn btn-danger">
+                            <span class="fa fa-remove"></span> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+</div>
+
+
+@section scripts{
+    <script>
+
+            $('#searchButton').click(function() {
+                var searchQuery = $('#searchInput').val(); // Get the search query from input field
+                var url = '/Product/Search?search=' + searchQuery; // URL for the controller action
+                //debugger
+                // Make AJAX call
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data: { search: searchQuery }, // Pass the search query as a parameter
+                    success: function(result) {
+                        // Handle the success response
+                        // You can update the DOM with the result if needed
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+
+        //function GetProduct(string Pid) {
+
+        //    var url = '/Product/GetProduct?id=' + Pid; // URL for the controller action
+
+        //    $('#validateRequest').html($('#Pid').val());
+        //    //debugger
+        //    // Make AJAX call
+        //    $.ajax({
+        //        url: url,
+        //        type: 'GET',
+        //        data: { id: Pid }, // Pass the search query as a parameter
+        //        success: function (result) {
+        //            // Handle the success response
+        //            // You can update the DOM with the result if needed
+        //        },
+        //        error: function (xhr, status, error) {
+        //            // Handle errors
+        //            console.error(xhr.responseText);
+        //        }
+        //    });
+        //}
+
+        //$('#searchInput').change(function () {
+        //    console.log($('#searchInput').val());
+        //    $('#validateRequest').html($('#searchInput').val());
+        //})
+
+    </script>
+    }

@@ -1,0 +1,2190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HealthSupportDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssignedDoctors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="DoctorFee" Type="int" />
+          <Property Name="DoctorReturningFee" Type="int" />
+          <Property Name="Sat" Type="bit" />
+          <Property Name="Sun" Type="bit" />
+          <Property Name="Mon" Type="bit" />
+          <Property Name="Tue" Type="bit" />
+          <Property Name="Wed" Type="bit" />
+          <Property Name="Thu" Type="bit" />
+          <Property Name="Fri" Type="bit" />
+          <Property Name="SatTime" Type="varchar" MaxLength="50" />
+          <Property Name="SunTime" Type="varchar" MaxLength="50" />
+          <Property Name="MonTime" Type="varchar" MaxLength="50" />
+          <Property Name="TueTime" Type="varchar" MaxLength="50" />
+          <Property Name="WedTime" Type="varchar" MaxLength="50" />
+          <Property Name="ThuTime" Type="varchar" MaxLength="50" />
+          <Property Name="FriTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BookAppointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="50" />
+          <Property Name="ChamberId" Type="int" />
+          <Property Name="ChamberName" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="Schedule" Type="varchar" MaxLength="50" />
+          <Property Name="AppointDate" Type="varchar" MaxLength="50" />
+          <Property Name="AppointPrice" Type="int" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="TrxId" Type="varchar" MaxLength="80" />
+          <Property Name="SerialNo" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DiagnosticServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="100" />
+          <Property Name="MedicalId" Type="int" />
+        </EntityType>
+        <EntityType Name="DoctorAppointOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ManageAppointId" Type="int" />
+          <Property Name="AppointAmount" Type="int" />
+          <Property Name="TotalPrice" Type="int" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="TrxId" Type="varchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="RemainingAppoint" Type="int" />
+          <Property Name="TotalAppoint" Type="int" />
+          <Property Name="Expired" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="80" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="Title" Type="varchar" MaxLength="80" />
+          <Property Name="Speciality" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="80" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="80" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="BmdcReg" Type="varchar" MaxLength="80" />
+          <Property Name="OtherSpecification" Type="varchar" MaxLength="100" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="100" />
+          <Property Name="PasswordVerified" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="AccountCreatedDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DoctorsChambers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="ChamberName" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Fee" Type="varchar" MaxLength="50" />
+          <Property Name="ReturningFee" Type="varchar" MaxLength="50" />
+          <Property Name="Sat" Type="bit" />
+          <Property Name="Sun" Type="bit" />
+          <Property Name="Mon" Type="bit" />
+          <Property Name="Tue" Type="bit" />
+          <Property Name="Wed" Type="bit" />
+          <Property Name="Thu" Type="bit" />
+          <Property Name="Fri" Type="bit" />
+          <Property Name="SatTime" Type="varchar" MaxLength="50" />
+          <Property Name="SunTime" Type="varchar" MaxLength="50" />
+          <Property Name="MonTime" Type="varchar" MaxLength="50" />
+          <Property Name="TueTime" Type="varchar" MaxLength="50" />
+          <Property Name="WedTime" Type="varchar" MaxLength="50" />
+          <Property Name="ThuTime" Type="varchar" MaxLength="50" />
+          <Property Name="FriTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DoctorsSpecialities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Speciality" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ForgetPasswordVerification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginId" Type="varchar" MaxLength="50" />
+          <Property Name="ContactPersonMobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="VerificationCode" Type="int" />
+        </EntityType>
+        <EntityType Name="ForumComments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="ForumPostId" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ForumPosts">
+          <Key>
+            <PropertyRef Name="ForumPostId" />
+          </Key>
+          <Property Name="ForumPostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TopicCategoryId" Type="int" />
+          <Property Name="TopicName" Type="varchar" MaxLength="120" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="500" />
+          <Property Name="Views" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="PostDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HospitalServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="100" />
+          <Property Name="MedicalId" Type="int" />
+        </EntityType>
+        <EntityType Name="MainAdmin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ManageAppointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SatCapacity" Type="int" />
+          <Property Name="SunCapacity" Type="int" />
+          <Property Name="MonCapacity" Type="int" />
+          <Property Name="TueCapacity" Type="int" />
+          <Property Name="WedCapacity" Type="int" />
+          <Property Name="ThuCapacity" Type="int" />
+          <Property Name="FriCapacity" Type="int" />
+          <Property Name="SatAvailableAppoint" Type="int" />
+          <Property Name="SunAvailableAppoint" Type="int" />
+          <Property Name="MonAvailableAppoint" Type="int" />
+          <Property Name="TueAvailableAppoint" Type="int" />
+          <Property Name="WedAvailableAppoint" Type="int" />
+          <Property Name="ThuAvailableAppoint" Type="int" />
+          <Property Name="FriAvailableAppoint" Type="int" />
+          <Property Name="OnlineAppoint" Type="bit" />
+          <Property Name="UsedAppoint" Type="int" />
+          <Property Name="TotalAvailableAppoint" Type="int" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="DoctorChamberId" Type="int" />
+        </EntityType>
+        <EntityType Name="MedicalAccounts">
+          <Key>
+            <PropertyRef Name="MedicalId" />
+          </Key>
+          <Property Name="MedicalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MedicalType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MedicalName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactPersonName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPersonPosition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPersonPhoneNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MedicalEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MedicalContact1" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="MedicalContact2" Type="varchar" MaxLength="11" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AmbulanceService" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AmbulanceContact" Type="varchar" MaxLength="11" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
+          <Property Name="ActivationCode" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="AccountCreatedDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MedicalConsultants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConsultantName" Type="varchar" MaxLength="100" />
+          <Property Name="MedicalId" Type="int" />
+        </EntityType>
+        <EntityType Name="MedicalEmergency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TwentyFourService" Type="varchar" MaxLength="20" />
+          <Property Name="EmergencyService" Type="varchar" MaxLength="20" />
+          <Property Name="AmbulanceService" Type="varchar" MaxLength="20" />
+          <Property Name="SeatCapacity" Type="int" />
+          <Property Name="EmergencyPhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="EmergencyPhoneNo2" Type="varchar" MaxLength="20" />
+          <Property Name="AmbulancePhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="AmbulancePhoneNo2" Type="varchar" MaxLength="20" />
+          <Property Name="MedicalId" Type="int" />
+        </EntityType>
+        <EntityType Name="MedicalFacilities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FacilityName" Type="varchar" MaxLength="100" />
+          <Property Name="MedicalId" Type="int" />
+        </EntityType>
+        <EntityType Name="OtherMedicalServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="100" />
+          <Property Name="MedicalId" Type="int" />
+        </EntityType>
+        <EntityType Name="TopicCategories">
+          <Key>
+            <PropertyRef Name="TopicCategoryId" />
+          </Key>
+          <Property Name="TopicCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TopicCategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="CountCategory" Type="int" />
+        </EntityType>
+        <EntityType Name="UserAccounts">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="11" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Age" Type="varchar" MaxLength="10" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="WantToGiveBlood" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.ChambersAppointOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ChambersAppointOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MedicalName" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="MedicalName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.CommentsVM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CommentsVM">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="200" />
+          <Property Name="ForumPostId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="80" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="ContactPersonName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.DoctorChamberOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DoctorChamberOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="DoctorChamberId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="80" />
+          <Property Name="MedicalName" Type="varchar" MaxLength="100" />
+          <Property Name="ChamberName" Type="varchar" MaxLength="100" />
+          <Property Name="AppointAmount" Type="int" />
+          <Property Name="TotalPrice" Type="int" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="TrxId" Type="varchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="Expired" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.DoctorChambersAppointOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DoctorChambersAppointOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="ChamberName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.ForumPostsVM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ForumPostsVM">
+          <Key>
+            <PropertyRef Name="ForumPostId" />
+            <PropertyRef Name="TopicCategoryId" />
+          </Key>
+          <Property Name="ForumPostId" Type="int" Nullable="false" />
+          <Property Name="TopicName" Type="varchar" MaxLength="120" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="500" />
+          <Property Name="Views" Type="int" />
+          <Property Name="PostDate" Type="varchar" MaxLength="50" />
+          <Property Name="TopicCategoryId" Type="int" Nullable="false" />
+          <Property Name="TopicCategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="80" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="ContactPersonName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.ManageAppointVM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ManageAppointVM">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SatCapacity" Type="int" />
+          <Property Name="SunCapacity" Type="int" />
+          <Property Name="MonCapacity" Type="int" />
+          <Property Name="TueCapacity" Type="int" />
+          <Property Name="WedCapacity" Type="int" />
+          <Property Name="ThuCapacity" Type="int" />
+          <Property Name="FriCapacity" Type="int" />
+          <Property Name="SatAvailableAppoint" Type="int" />
+          <Property Name="SunAvailableAppoint" Type="int" />
+          <Property Name="MonAvailableAppoint" Type="int" />
+          <Property Name="TueAvailableAppoint" Type="int" />
+          <Property Name="WedAvailableAppoint" Type="int" />
+          <Property Name="ThuAvailableAppoint" Type="int" />
+          <Property Name="FriAvailableAppoint" Type="int" />
+          <Property Name="OnlineAppoint" Type="bit" />
+          <Property Name="UsedAppoint" Type="int" />
+          <Property Name="TotalAvailableAppoint" Type="int" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="DoctorChamberId" Type="int" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="AppointAmount" Type="int" />
+          <Property Name="RemainingAppoint" Type="int" />
+          <Property Name="TotalAppoint" Type="int" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="Expired" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.ViewDoctorChamber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewDoctorChamber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="80" />
+          <Property Name="Speciality" Type="varchar" MaxLength="100" />
+          <Property Name="OtherSpecification" Type="varchar" MaxLength="100" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ChamberName" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Fee" Type="varchar" MaxLength="50" />
+          <Property Name="ReturningFee" Type="varchar" MaxLength="50" />
+          <Property Name="Sat" Type="bit" />
+          <Property Name="Sun" Type="bit" />
+          <Property Name="Mon" Type="bit" />
+          <Property Name="Tue" Type="bit" />
+          <Property Name="Wed" Type="bit" />
+          <Property Name="Thu" Type="bit" />
+          <Property Name="Fri" Type="bit" />
+          <Property Name="SatTime" Type="varchar" MaxLength="50" />
+          <Property Name="SunTime" Type="varchar" MaxLength="50" />
+          <Property Name="MonTime" Type="varchar" MaxLength="50" />
+          <Property Name="TueTime" Type="varchar" MaxLength="50" />
+          <Property Name="WedTime" Type="varchar" MaxLength="50" />
+          <Property Name="ThuTime" Type="varchar" MaxLength="50" />
+          <Property Name="FriTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HealthSupportDB.dbo.ViewDoctors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewDoctors">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MedicalName" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="City" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="80" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="Title" Type="varchar" MaxLength="80" />
+          <Property Name="Speciality" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="80" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="20" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
+          <Property Name="BmdcReg" Type="varchar" MaxLength="80" />
+          <Property Name="OtherSpecification" Type="varchar" MaxLength="100" />
+          <Property Name="MedicalId" Type="int" />
+          <Property Name="MedicalName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DoctorFee" Type="int" />
+          <Property Name="DoctorReturningFee" Type="int" />
+          <Property Name="Sat" Type="bit" />
+          <Property Name="Sun" Type="bit" />
+          <Property Name="Mon" Type="bit" />
+          <Property Name="Tue" Type="bit" />
+          <Property Name="Wed" Type="bit" />
+          <Property Name="Thu" Type="bit" />
+          <Property Name="Fri" Type="bit" />
+          <Property Name="SatTime" Type="varchar" MaxLength="50" />
+          <Property Name="SunTime" Type="varchar" MaxLength="50" />
+          <Property Name="MonTime" Type="varchar" MaxLength="50" />
+          <Property Name="TueTime" Type="varchar" MaxLength="50" />
+          <Property Name="WedTime" Type="varchar" MaxLength="50" />
+          <Property Name="ThuTime" Type="varchar" MaxLength="50" />
+          <Property Name="FriTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AssignedDoctors_Doctors">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
+          <End Role="AssignedDoctors" Type="Self.AssignedDoctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssignedDoctors">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssignedDoctors_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="AssignedDoctors" Type="Self.AssignedDoctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="AssignedDoctors">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnosticServices_DiagnosticServices">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="DiagnosticServices" Type="Self.DiagnosticServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="DiagnosticServices">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DoctorsChambers_Doctors">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
+          <End Role="DoctorsChambers" Type="Self.DoctorsChambers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoctorsChambers">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumComments_ForumPosts">
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="0..1" />
+          <End Role="ForumComments" Type="Self.ForumComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ForumPosts">
+              <PropertyRef Name="ForumPostId" />
+            </Principal>
+            <Dependent Role="ForumComments">
+              <PropertyRef Name="ForumPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_Doctors">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_TopicCategories">
+          <End Role="TopicCategories" Type="Self.TopicCategories" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopicCategories">
+              <PropertyRef Name="TopicCategoryId" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="TopicCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_UserAccounts">
+          <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccounts">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HospitalServices_HospitalServices">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="HospitalServices" Type="Self.HospitalServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="HospitalServices">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedicalConsultants_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="MedicalConsultants" Type="Self.MedicalConsultants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="MedicalConsultants">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedicalFacilities_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="MedicalFacilities" Type="Self.MedicalFacilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="MedicalFacilities">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedicalServices_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="MedicalEmergency" Type="Self.MedicalEmergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="MedicalEmergency">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtherMedicalServices_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccounts" Multiplicity="0..1" />
+          <End Role="OtherMedicalServices" Type="Self.OtherMedicalServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="OtherMedicalServices">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthSupportDBModelStoreContainer">
+          <EntitySet Name="AssignedDoctors" EntityType="Self.AssignedDoctors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookAppointment" EntityType="Self.BookAppointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiagnosticServices" EntityType="Self.DiagnosticServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoctorAppointOrder" EntityType="Self.DoctorAppointOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoctorsChambers" EntityType="Self.DoctorsChambers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoctorsSpecialities" EntityType="Self.DoctorsSpecialities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForgetPasswordVerification" EntityType="Self.ForgetPasswordVerification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForumComments" EntityType="Self.ForumComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForumPosts" EntityType="Self.ForumPosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HospitalServices" EntityType="Self.HospitalServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainAdmin" EntityType="Self.MainAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManageAppointment" EntityType="Self.ManageAppointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalAccounts" EntityType="Self.MedicalAccounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalConsultants" EntityType="Self.MedicalConsultants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalEmergency" EntityType="Self.MedicalEmergency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalFacilities" EntityType="Self.MedicalFacilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OtherMedicalServices" EntityType="Self.OtherMedicalServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TopicCategories" EntityType="Self.TopicCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAccounts" EntityType="Self.UserAccounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChambersAppointOrder" EntityType="Self.ChambersAppointOrder" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ChambersAppointOrder].[Id] AS [Id], 
+    [ChambersAppointOrder].[DoctorId] AS [DoctorId], 
+    [ChambersAppointOrder].[MedicalName] AS [MedicalName]
+    FROM [dbo].[ChambersAppointOrder] AS [ChambersAppointOrder]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CommentsVM" EntityType="Self.CommentsVM" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CommentsVM].[CommentId] AS [CommentId], 
+    [CommentsVM].[Comment] AS [Comment], 
+    [CommentsVM].[ForumPostId] AS [ForumPostId], 
+    [CommentsVM].[UserId] AS [UserId], 
+    [CommentsVM].[UserName] AS [UserName], 
+    [CommentsVM].[DoctorId] AS [DoctorId], 
+    [CommentsVM].[Name] AS [Name], 
+    [CommentsVM].[MedicalId] AS [MedicalId], 
+    [CommentsVM].[ContactPersonName] AS [ContactPersonName]
+    FROM [dbo].[CommentsVM] AS [CommentsVM]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DoctorChamberOrder" EntityType="Self.DoctorChamberOrder" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DoctorChamberOrder].[OrderId] AS [OrderId], 
+    [DoctorChamberOrder].[Id] AS [Id], 
+    [DoctorChamberOrder].[DoctorId] AS [DoctorId], 
+    [DoctorChamberOrder].[MedicalId] AS [MedicalId], 
+    [DoctorChamberOrder].[DoctorChamberId] AS [DoctorChamberId], 
+    [DoctorChamberOrder].[Name] AS [Name], 
+    [DoctorChamberOrder].[MedicalName] AS [MedicalName], 
+    [DoctorChamberOrder].[ChamberName] AS [ChamberName], 
+    [DoctorChamberOrder].[AppointAmount] AS [AppointAmount], 
+    [DoctorChamberOrder].[TotalPrice] AS [TotalPrice], 
+    [DoctorChamberOrder].[PaymentMethod] AS [PaymentMethod], 
+    [DoctorChamberOrder].[TrxId] AS [TrxId], 
+    [DoctorChamberOrder].[OrderDate] AS [OrderDate], 
+    [DoctorChamberOrder].[ExpireDate] AS [ExpireDate], 
+    [DoctorChamberOrder].[Expired] AS [Expired], 
+    [DoctorChamberOrder].[Status] AS [Status]
+    FROM [dbo].[DoctorChamberOrder] AS [DoctorChamberOrder]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DoctorChambersAppointOrder" EntityType="Self.DoctorChambersAppointOrder" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DoctorChambersAppointOrder].[Id] AS [Id], 
+    [DoctorChambersAppointOrder].[DoctorId] AS [DoctorId], 
+    [DoctorChambersAppointOrder].[ChamberName] AS [ChamberName]
+    FROM [dbo].[DoctorChambersAppointOrder] AS [DoctorChambersAppointOrder]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ForumPostsVM" EntityType="Self.ForumPostsVM" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ForumPostsVM].[ForumPostId] AS [ForumPostId], 
+    [ForumPostsVM].[TopicName] AS [TopicName], 
+    [ForumPostsVM].[Description] AS [Description], 
+    [ForumPostsVM].[ImagePath] AS [ImagePath], 
+    [ForumPostsVM].[Views] AS [Views], 
+    [ForumPostsVM].[PostDate] AS [PostDate], 
+    [ForumPostsVM].[TopicCategoryId] AS [TopicCategoryId], 
+    [ForumPostsVM].[TopicCategoryName] AS [TopicCategoryName], 
+    [ForumPostsVM].[UserId] AS [UserId], 
+    [ForumPostsVM].[UserName] AS [UserName], 
+    [ForumPostsVM].[DoctorId] AS [DoctorId], 
+    [ForumPostsVM].[Name] AS [Name], 
+    [ForumPostsVM].[MedicalId] AS [MedicalId], 
+    [ForumPostsVM].[ContactPersonName] AS [ContactPersonName]
+    FROM [dbo].[ForumPostsVM] AS [ForumPostsVM]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ManageAppointVM" EntityType="Self.ManageAppointVM" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ManageAppointVM].[Id] AS [Id], 
+    [ManageAppointVM].[SatCapacity] AS [SatCapacity], 
+    [ManageAppointVM].[SunCapacity] AS [SunCapacity], 
+    [ManageAppointVM].[MonCapacity] AS [MonCapacity], 
+    [ManageAppointVM].[TueCapacity] AS [TueCapacity], 
+    [ManageAppointVM].[WedCapacity] AS [WedCapacity], 
+    [ManageAppointVM].[ThuCapacity] AS [ThuCapacity], 
+    [ManageAppointVM].[FriCapacity] AS [FriCapacity], 
+    [ManageAppointVM].[SatAvailableAppoint] AS [SatAvailableAppoint], 
+    [ManageAppointVM].[SunAvailableAppoint] AS [SunAvailableAppoint], 
+    [ManageAppointVM].[MonAvailableAppoint] AS [MonAvailableAppoint], 
+    [ManageAppointVM].[TueAvailableAppoint] AS [TueAvailableAppoint], 
+    [ManageAppointVM].[WedAvailableAppoint] AS [WedAvailableAppoint], 
+    [ManageAppointVM].[ThuAvailableAppoint] AS [ThuAvailableAppoint], 
+    [ManageAppointVM].[FriAvailableAppoint] AS [FriAvailableAppoint], 
+    [ManageAppointVM].[OnlineAppoint] AS [OnlineAppoint], 
+    [ManageAppointVM].[UsedAppoint] AS [UsedAppoint], 
+    [ManageAppointVM].[TotalAvailableAppoint] AS [TotalAvailableAppoint], 
+    [ManageAppointVM].[DoctorId] AS [DoctorId], 
+    [ManageAppointVM].[MedicalId] AS [MedicalId], 
+    [ManageAppointVM].[DoctorChamberId] AS [DoctorChamberId], 
+    [ManageAppointVM].[OrderId] AS [OrderId], 
+    [ManageAppointVM].[AppointAmount] AS [AppointAmount], 
+    [ManageAppointVM].[RemainingAppoint] AS [RemainingAppoint], 
+    [ManageAppointVM].[TotalAppoint] AS [TotalAppoint], 
+    [ManageAppointVM].[ExpireDate] AS [ExpireDate], 
+    [ManageAppointVM].[Expired] AS [Expired], 
+    [ManageAppointVM].[Status] AS [Status]
+    FROM [dbo].[ManageAppointVM] AS [ManageAppointVM]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewDoctorChamber" EntityType="Self.ViewDoctorChamber" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewDoctorChamber].[DoctorId] AS [DoctorId], 
+    [ViewDoctorChamber].[Name] AS [Name], 
+    [ViewDoctorChamber].[Speciality] AS [Speciality], 
+    [ViewDoctorChamber].[OtherSpecification] AS [OtherSpecification], 
+    [ViewDoctorChamber].[Id] AS [Id], 
+    [ViewDoctorChamber].[ChamberName] AS [ChamberName], 
+    [ViewDoctorChamber].[Address] AS [Address], 
+    [ViewDoctorChamber].[Area] AS [Area], 
+    [ViewDoctorChamber].[City] AS [City], 
+    [ViewDoctorChamber].[ContactNo] AS [ContactNo], 
+    [ViewDoctorChamber].[PhoneNo] AS [PhoneNo], 
+    [ViewDoctorChamber].[Fee] AS [Fee], 
+    [ViewDoctorChamber].[ReturningFee] AS [ReturningFee], 
+    [ViewDoctorChamber].[Sat] AS [Sat], 
+    [ViewDoctorChamber].[Sun] AS [Sun], 
+    [ViewDoctorChamber].[Mon] AS [Mon], 
+    [ViewDoctorChamber].[Tue] AS [Tue], 
+    [ViewDoctorChamber].[Wed] AS [Wed], 
+    [ViewDoctorChamber].[Thu] AS [Thu], 
+    [ViewDoctorChamber].[Fri] AS [Fri], 
+    [ViewDoctorChamber].[SatTime] AS [SatTime], 
+    [ViewDoctorChamber].[SunTime] AS [SunTime], 
+    [ViewDoctorChamber].[MonTime] AS [MonTime], 
+    [ViewDoctorChamber].[TueTime] AS [TueTime], 
+    [ViewDoctorChamber].[WedTime] AS [WedTime], 
+    [ViewDoctorChamber].[ThuTime] AS [ThuTime], 
+    [ViewDoctorChamber].[FriTime] AS [FriTime]
+    FROM [dbo].[ViewDoctorChamber] AS [ViewDoctorChamber]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewDoctors" EntityType="Self.ViewDoctors" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewDoctors].[Id] AS [Id], 
+    [ViewDoctors].[ImagePath] AS [ImagePath], 
+    [ViewDoctors].[Name] AS [Name], 
+    [ViewDoctors].[Gender] AS [Gender], 
+    [ViewDoctors].[Title] AS [Title], 
+    [ViewDoctors].[Speciality] AS [Speciality], 
+    [ViewDoctors].[Email] AS [Email], 
+    [ViewDoctors].[MobileNo] AS [MobileNo], 
+    [ViewDoctors].[PhoneNo] AS [PhoneNo], 
+    [ViewDoctors].[BmdcReg] AS [BmdcReg], 
+    [ViewDoctors].[OtherSpecification] AS [OtherSpecification], 
+    [ViewDoctors].[MedicalId] AS [MedicalId], 
+    [ViewDoctors].[MedicalName] AS [MedicalName], 
+    [ViewDoctors].[Address] AS [Address], 
+    [ViewDoctors].[Area] AS [Area], 
+    [ViewDoctors].[City] AS [City], 
+    [ViewDoctors].[DoctorFee] AS [DoctorFee], 
+    [ViewDoctors].[DoctorReturningFee] AS [DoctorReturningFee], 
+    [ViewDoctors].[Sat] AS [Sat], 
+    [ViewDoctors].[Sun] AS [Sun], 
+    [ViewDoctors].[Mon] AS [Mon], 
+    [ViewDoctors].[Tue] AS [Tue], 
+    [ViewDoctors].[Wed] AS [Wed], 
+    [ViewDoctors].[Thu] AS [Thu], 
+    [ViewDoctors].[Fri] AS [Fri], 
+    [ViewDoctors].[SatTime] AS [SatTime], 
+    [ViewDoctors].[SunTime] AS [SunTime], 
+    [ViewDoctors].[MonTime] AS [MonTime], 
+    [ViewDoctors].[TueTime] AS [TueTime], 
+    [ViewDoctors].[WedTime] AS [WedTime], 
+    [ViewDoctors].[ThuTime] AS [ThuTime], 
+    [ViewDoctors].[FriTime] AS [FriTime]
+    FROM [dbo].[ViewDoctors] AS [ViewDoctors]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AssignedDoctors_Doctors" Association="Self.FK_AssignedDoctors_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="AssignedDoctors" EntitySet="AssignedDoctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssignedDoctors_MedicalAccounts" Association="Self.FK_AssignedDoctors_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="AssignedDoctors" EntitySet="AssignedDoctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnosticServices_DiagnosticServices" Association="Self.FK_DiagnosticServices_DiagnosticServices">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="DiagnosticServices" EntitySet="DiagnosticServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DoctorsChambers_Doctors" Association="Self.FK_DoctorsChambers_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="DoctorsChambers" EntitySet="DoctorsChambers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumComments_ForumPosts" Association="Self.FK_ForumComments_ForumPosts">
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+            <End Role="ForumComments" EntitySet="ForumComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_Doctors" Association="Self.FK_ForumPosts_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_MedicalAccounts" Association="Self.FK_ForumPosts_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_TopicCategories" Association="Self.FK_ForumPosts_TopicCategories">
+            <End Role="TopicCategories" EntitySet="TopicCategories" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_UserAccounts" Association="Self.FK_ForumPosts_UserAccounts">
+            <End Role="UserAccounts" EntitySet="UserAccounts" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HospitalServices_HospitalServices" Association="Self.FK_HospitalServices_HospitalServices">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="HospitalServices" EntitySet="HospitalServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedicalConsultants_MedicalAccounts" Association="Self.FK_MedicalConsultants_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="MedicalConsultants" EntitySet="MedicalConsultants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedicalFacilities_MedicalAccounts" Association="Self.FK_MedicalFacilities_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="MedicalFacilities" EntitySet="MedicalFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedicalServices_MedicalAccounts" Association="Self.FK_MedicalServices_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="MedicalEmergency" EntitySet="MedicalEmergency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtherMedicalServices_MedicalAccounts" Association="Self.FK_OtherMedicalServices_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="OtherMedicalServices" EntitySet="OtherMedicalServices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HealthSupportDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AssignedDoctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="DoctorFee" Type="Int32" />
+          <Property Name="DoctorReturningFee" Type="Int32" />
+          <Property Name="Sat" Type="Boolean" />
+          <Property Name="Sun" Type="Boolean" />
+          <Property Name="Mon" Type="Boolean" />
+          <Property Name="Tue" Type="Boolean" />
+          <Property Name="Wed" Type="Boolean" />
+          <Property Name="Thu" Type="Boolean" />
+          <Property Name="Fri" Type="Boolean" />
+          <Property Name="SatTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MonTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TueTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WedTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThuTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FriTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_AssignedDoctors_Doctors" FromRole="AssignedDoctors" ToRole="Doctors" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_AssignedDoctors_MedicalAccounts" FromRole="AssignedDoctors" ToRole="MedicalAccounts" />
+        </EntityType>
+        <EntityType Name="BookAppointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="DoctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChamberId" Type="Int32" />
+          <Property Name="ChamberName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Schedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppointDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppointPrice" Type="Int32" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrxId" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNo" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DiagnosticService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_DiagnosticServices_DiagnosticServices" FromRole="DiagnosticServices" ToRole="MedicalAccounts" />
+        </EntityType>
+        <EntityType Name="DoctorAppointOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ManageAppointId" Type="Int32" />
+          <Property Name="AppointAmount" Type="Int32" />
+          <Property Name="TotalPrice" Type="Int32" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrxId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpireDate" Type="DateTime" Precision="3" />
+          <Property Name="RemainingAppoint" Type="Int32" />
+          <Property Name="TotalAppoint" Type="Int32" />
+          <Property Name="Expired" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Speciality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BmdcReg" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="OtherSpecification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordVerified" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AccountCreatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AssignedDoctors" Relationship="Self.FK_AssignedDoctors_Doctors" FromRole="Doctors" ToRole="AssignedDoctors" />
+          <NavigationProperty Name="DoctorsChambers" Relationship="Self.FK_DoctorsChambers_Doctors" FromRole="Doctors" ToRole="DoctorsChambers" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FK_ForumPosts_Doctors" FromRole="Doctors" ToRole="ForumPosts" />
+        </EntityType>
+        <EntityType Name="DoctorsChamber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="ChamberName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReturningFee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sat" Type="Boolean" />
+          <Property Name="Sun" Type="Boolean" />
+          <Property Name="Mon" Type="Boolean" />
+          <Property Name="Tue" Type="Boolean" />
+          <Property Name="Wed" Type="Boolean" />
+          <Property Name="Thu" Type="Boolean" />
+          <Property Name="Fri" Type="Boolean" />
+          <Property Name="SatTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MonTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TueTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WedTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThuTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FriTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_DoctorsChambers_Doctors" FromRole="DoctorsChambers" ToRole="Doctors" />
+        </EntityType>
+        <EntityType Name="DoctorsSpeciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Speciality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ForgetPasswordVerification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPersonMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VerificationCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ForumComment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="ForumPostId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ForumPost" Relationship="Self.FK_ForumComments_ForumPosts" FromRole="ForumComments" ToRole="ForumPosts" />
+        </EntityType>
+        <EntityType Name="ForumPost">
+          <Key>
+            <PropertyRef Name="ForumPostId" />
+          </Key>
+          <Property Name="ForumPostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TopicCategoryId" Type="Int32" />
+          <Property Name="TopicName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Views" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="PostDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_ForumPosts_Doctors" FromRole="ForumPosts" ToRole="Doctors" />
+          <NavigationProperty Name="ForumComments" Relationship="Self.FK_ForumComments_ForumPosts" FromRole="ForumPosts" ToRole="ForumComments" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_ForumPosts_MedicalAccounts" FromRole="ForumPosts" ToRole="MedicalAccounts" />
+          <NavigationProperty Name="TopicCategory" Relationship="Self.FK_ForumPosts_TopicCategories" FromRole="ForumPosts" ToRole="TopicCategories" />
+          <NavigationProperty Name="UserAccount" Relationship="Self.FK_ForumPosts_UserAccounts" FromRole="ForumPosts" ToRole="UserAccounts" />
+        </EntityType>
+        <EntityType Name="HospitalService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_HospitalServices_HospitalServices" FromRole="HospitalServices" ToRole="MedicalAccounts" />
+        </EntityType>
+        <EntityType Name="MainAdmin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ManageAppointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SatCapacity" Type="Int32" />
+          <Property Name="SunCapacity" Type="Int32" />
+          <Property Name="MonCapacity" Type="Int32" />
+          <Property Name="TueCapacity" Type="Int32" />
+          <Property Name="WedCapacity" Type="Int32" />
+          <Property Name="ThuCapacity" Type="Int32" />
+          <Property Name="FriCapacity" Type="Int32" />
+          <Property Name="SatAvailableAppoint" Type="Int32" />
+          <Property Name="SunAvailableAppoint" Type="Int32" />
+          <Property Name="MonAvailableAppoint" Type="Int32" />
+          <Property Name="TueAvailableAppoint" Type="Int32" />
+          <Property Name="WedAvailableAppoint" Type="Int32" />
+          <Property Name="ThuAvailableAppoint" Type="Int32" />
+          <Property Name="FriAvailableAppoint" Type="Int32" />
+          <Property Name="OnlineAppoint" Type="Boolean" />
+          <Property Name="UsedAppoint" Type="Int32" />
+          <Property Name="TotalAvailableAppoint" Type="Int32" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="DoctorChamberId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MedicalAccount">
+          <Key>
+            <PropertyRef Name="MedicalId" />
+          </Key>
+          <Property Name="MedicalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicalType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicalName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactPersonPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactPersonPhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicalContact1" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicalContact2" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AmbulanceService" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AmbulanceContact" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsEmailVerified" Type="Boolean" Nullable="false" />
+          <Property Name="ActivationCode" Type="Guid" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AccountCreatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AssignedDoctors" Relationship="Self.FK_AssignedDoctors_MedicalAccounts" FromRole="MedicalAccounts" ToRole="AssignedDoctors" />
+          <NavigationProperty Name="DiagnosticServices" Relationship="Self.FK_DiagnosticServices_DiagnosticServices" FromRole="MedicalAccounts" ToRole="DiagnosticServices" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FK_ForumPosts_MedicalAccounts" FromRole="MedicalAccounts" ToRole="ForumPosts" />
+          <NavigationProperty Name="HospitalServices" Relationship="Self.FK_HospitalServices_HospitalServices" FromRole="MedicalAccounts" ToRole="HospitalServices" />
+          <NavigationProperty Name="MedicalConsultants" Relationship="Self.FK_MedicalConsultants_MedicalAccounts" FromRole="MedicalAccounts" ToRole="MedicalConsultants" />
+          <NavigationProperty Name="MedicalFacilities" Relationship="Self.FK_MedicalFacilities_MedicalAccounts" FromRole="MedicalAccounts" ToRole="MedicalFacilities" />
+          <NavigationProperty Name="MedicalEmergencies" Relationship="Self.FK_MedicalServices_MedicalAccounts" FromRole="MedicalAccounts" ToRole="MedicalEmergency" />
+          <NavigationProperty Name="OtherMedicalServices" Relationship="Self.FK_OtherMedicalServices_MedicalAccounts" FromRole="MedicalAccounts" ToRole="OtherMedicalServices" />
+        </EntityType>
+        <EntityType Name="MedicalConsultant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConsultantName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_MedicalConsultants_MedicalAccounts" FromRole="MedicalConsultants" ToRole="MedicalAccounts" />
+        </EntityType>
+        <EntityType Name="MedicalEmergency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TwentyFourService" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmergencyService" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AmbulanceService" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SeatCapacity" Type="Int32" />
+          <Property Name="EmergencyPhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmergencyPhoneNo2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AmbulancePhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AmbulancePhoneNo2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_MedicalServices_MedicalAccounts" FromRole="MedicalEmergency" ToRole="MedicalAccounts" />
+        </EntityType>
+        <EntityType Name="MedicalFacility">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FacilityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_MedicalFacilities_MedicalAccounts" FromRole="MedicalFacilities" ToRole="MedicalAccounts" />
+        </EntityType>
+        <EntityType Name="OtherMedicalService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <NavigationProperty Name="MedicalAccount" Relationship="Self.FK_OtherMedicalServices_MedicalAccounts" FromRole="OtherMedicalServices" ToRole="MedicalAccounts" />
+        </EntityType>
+        <EntityType Name="TopicCategory">
+          <Key>
+            <PropertyRef Name="TopicCategoryId" />
+          </Key>
+          <Property Name="TopicCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TopicCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountCategory" Type="Int32" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FK_ForumPosts_TopicCategories" FromRole="TopicCategories" ToRole="ForumPosts" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WantToGiveBlood" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FK_ForumPosts_UserAccounts" FromRole="UserAccounts" ToRole="ForumPosts" />
+        </EntityType>
+        <EntityType Name="ChambersAppointOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MedicalName" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="MedicalName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommentsVM">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ForumPostId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="ContactPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DoctorChamberOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="DoctorChamberId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChamberName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AppointAmount" Type="Int32" />
+          <Property Name="TotalPrice" Type="Int32" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrxId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpireDate" Type="DateTime" Precision="3" />
+          <Property Name="Expired" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DoctorChambersAppointOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="ChamberName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ForumPostsVM">
+          <Key>
+            <PropertyRef Name="ForumPostId" />
+            <PropertyRef Name="TopicCategoryId" />
+          </Key>
+          <Property Name="ForumPostId" Type="Int32" Nullable="false" />
+          <Property Name="TopicName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Views" Type="Int32" />
+          <Property Name="PostDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TopicCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="TopicCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="ContactPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ManageAppointVM">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SatCapacity" Type="Int32" />
+          <Property Name="SunCapacity" Type="Int32" />
+          <Property Name="MonCapacity" Type="Int32" />
+          <Property Name="TueCapacity" Type="Int32" />
+          <Property Name="WedCapacity" Type="Int32" />
+          <Property Name="ThuCapacity" Type="Int32" />
+          <Property Name="FriCapacity" Type="Int32" />
+          <Property Name="SatAvailableAppoint" Type="Int32" />
+          <Property Name="SunAvailableAppoint" Type="Int32" />
+          <Property Name="MonAvailableAppoint" Type="Int32" />
+          <Property Name="TueAvailableAppoint" Type="Int32" />
+          <Property Name="WedAvailableAppoint" Type="Int32" />
+          <Property Name="ThuAvailableAppoint" Type="Int32" />
+          <Property Name="FriAvailableAppoint" Type="Int32" />
+          <Property Name="OnlineAppoint" Type="Boolean" />
+          <Property Name="UsedAppoint" Type="Int32" />
+          <Property Name="TotalAvailableAppoint" Type="Int32" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="DoctorChamberId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="AppointAmount" Type="Int32" />
+          <Property Name="RemainingAppoint" Type="Int32" />
+          <Property Name="TotalAppoint" Type="Int32" />
+          <Property Name="ExpireDate" Type="DateTime" Precision="3" />
+          <Property Name="Expired" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewDoctorChamber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Speciality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OtherSpecification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ChamberName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReturningFee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sat" Type="Boolean" />
+          <Property Name="Sun" Type="Boolean" />
+          <Property Name="Mon" Type="Boolean" />
+          <Property Name="Tue" Type="Boolean" />
+          <Property Name="Wed" Type="Boolean" />
+          <Property Name="Thu" Type="Boolean" />
+          <Property Name="Fri" Type="Boolean" />
+          <Property Name="SatTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MonTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TueTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WedTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThuTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FriTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewDoctor">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MedicalName" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="City" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Speciality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BmdcReg" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="OtherSpecification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalId" Type="Int32" />
+          <Property Name="MedicalName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorFee" Type="Int32" />
+          <Property Name="DoctorReturningFee" Type="Int32" />
+          <Property Name="Sat" Type="Boolean" />
+          <Property Name="Sun" Type="Boolean" />
+          <Property Name="Mon" Type="Boolean" />
+          <Property Name="Tue" Type="Boolean" />
+          <Property Name="Wed" Type="Boolean" />
+          <Property Name="Thu" Type="Boolean" />
+          <Property Name="Fri" Type="Boolean" />
+          <Property Name="SatTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MonTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TueTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WedTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThuTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FriTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_AssignedDoctors_Doctors">
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="AssignedDoctors" Type="Self.AssignedDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssignedDoctors">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssignedDoctors_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="AssignedDoctors" Type="Self.AssignedDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="AssignedDoctors">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnosticServices_DiagnosticServices">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="DiagnosticServices" Type="Self.DiagnosticService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="DiagnosticServices">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DoctorsChambers_Doctors">
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="DoctorsChambers" Type="Self.DoctorsChamber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoctorsChambers">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_Doctors">
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumComments_ForumPosts">
+          <End Role="ForumPosts" Type="Self.ForumPost" Multiplicity="0..1" />
+          <End Role="ForumComments" Type="Self.ForumComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ForumPosts">
+              <PropertyRef Name="ForumPostId" />
+            </Principal>
+            <Dependent Role="ForumComments">
+              <PropertyRef Name="ForumPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_TopicCategories">
+          <End Role="TopicCategories" Type="Self.TopicCategory" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopicCategories">
+              <PropertyRef Name="TopicCategoryId" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="TopicCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ForumPosts_UserAccounts">
+          <End Role="UserAccounts" Type="Self.UserAccount" Multiplicity="0..1" />
+          <End Role="ForumPosts" Type="Self.ForumPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccounts">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HospitalServices_HospitalServices">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="HospitalServices" Type="Self.HospitalService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="HospitalServices">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedicalConsultants_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="MedicalConsultants" Type="Self.MedicalConsultant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="MedicalConsultants">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedicalFacilities_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="MedicalFacilities" Type="Self.MedicalFacility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="MedicalFacilities">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedicalServices_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="MedicalEmergency" Type="Self.MedicalEmergency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="MedicalEmergency">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtherMedicalServices_MedicalAccounts">
+          <End Role="MedicalAccounts" Type="Self.MedicalAccount" Multiplicity="0..1" />
+          <End Role="OtherMedicalServices" Type="Self.OtherMedicalService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalAccounts">
+              <PropertyRef Name="MedicalId" />
+            </Principal>
+            <Dependent Role="OtherMedicalServices">
+              <PropertyRef Name="MedicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthSupportDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssignedDoctors" EntityType="Self.AssignedDoctor" />
+          <EntitySet Name="BookAppointments" EntityType="Self.BookAppointment" />
+          <EntitySet Name="DiagnosticServices" EntityType="Self.DiagnosticService" />
+          <EntitySet Name="DoctorAppointOrders" EntityType="Self.DoctorAppointOrder" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="DoctorsChambers" EntityType="Self.DoctorsChamber" />
+          <EntitySet Name="DoctorsSpecialities" EntityType="Self.DoctorsSpeciality" />
+          <EntitySet Name="ForgetPasswordVerifications" EntityType="Self.ForgetPasswordVerification" />
+          <EntitySet Name="ForumComments" EntityType="Self.ForumComment" />
+          <EntitySet Name="ForumPosts" EntityType="Self.ForumPost" />
+          <EntitySet Name="HospitalServices" EntityType="Self.HospitalService" />
+          <EntitySet Name="MainAdmins" EntityType="Self.MainAdmin" />
+          <EntitySet Name="ManageAppointments" EntityType="Self.ManageAppointment" />
+          <EntitySet Name="MedicalAccounts" EntityType="Self.MedicalAccount" />
+          <EntitySet Name="MedicalConsultants" EntityType="Self.MedicalConsultant" />
+          <EntitySet Name="MedicalEmergencies" EntityType="Self.MedicalEmergency" />
+          <EntitySet Name="MedicalFacilities" EntityType="Self.MedicalFacility" />
+          <EntitySet Name="OtherMedicalServices" EntityType="Self.OtherMedicalService" />
+          <EntitySet Name="TopicCategories" EntityType="Self.TopicCategory" />
+          <EntitySet Name="UserAccounts" EntityType="Self.UserAccount" />
+          <EntitySet Name="ChambersAppointOrders" EntityType="Self.ChambersAppointOrder" />
+          <EntitySet Name="CommentsVMs" EntityType="Self.CommentsVM" />
+          <EntitySet Name="DoctorChamberOrders" EntityType="Self.DoctorChamberOrder" />
+          <EntitySet Name="DoctorChambersAppointOrders" EntityType="Self.DoctorChambersAppointOrder" />
+          <EntitySet Name="ForumPostsVMs" EntityType="Self.ForumPostsVM" />
+          <EntitySet Name="ManageAppointVMs" EntityType="Self.ManageAppointVM" />
+          <EntitySet Name="ViewDoctorChambers" EntityType="Self.ViewDoctorChamber" />
+          <EntitySet Name="ViewDoctors" EntityType="Self.ViewDoctor" />
+          <AssociationSet Name="FK_AssignedDoctors_Doctors" Association="Self.FK_AssignedDoctors_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="AssignedDoctors" EntitySet="AssignedDoctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssignedDoctors_MedicalAccounts" Association="Self.FK_AssignedDoctors_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="AssignedDoctors" EntitySet="AssignedDoctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnosticServices_DiagnosticServices" Association="Self.FK_DiagnosticServices_DiagnosticServices">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="DiagnosticServices" EntitySet="DiagnosticServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DoctorsChambers_Doctors" Association="Self.FK_DoctorsChambers_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="DoctorsChambers" EntitySet="DoctorsChambers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_Doctors" Association="Self.FK_ForumPosts_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumComments_ForumPosts" Association="Self.FK_ForumComments_ForumPosts">
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+            <End Role="ForumComments" EntitySet="ForumComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_MedicalAccounts" Association="Self.FK_ForumPosts_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_TopicCategories" Association="Self.FK_ForumPosts_TopicCategories">
+            <End Role="TopicCategories" EntitySet="TopicCategories" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ForumPosts_UserAccounts" Association="Self.FK_ForumPosts_UserAccounts">
+            <End Role="UserAccounts" EntitySet="UserAccounts" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HospitalServices_HospitalServices" Association="Self.FK_HospitalServices_HospitalServices">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="HospitalServices" EntitySet="HospitalServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedicalConsultants_MedicalAccounts" Association="Self.FK_MedicalConsultants_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="MedicalConsultants" EntitySet="MedicalConsultants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedicalFacilities_MedicalAccounts" Association="Self.FK_MedicalFacilities_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="MedicalFacilities" EntitySet="MedicalFacilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedicalServices_MedicalAccounts" Association="Self.FK_MedicalServices_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="MedicalEmergency" EntitySet="MedicalEmergencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtherMedicalServices_MedicalAccounts" Association="Self.FK_OtherMedicalServices_MedicalAccounts">
+            <End Role="MedicalAccounts" EntitySet="MedicalAccounts" />
+            <End Role="OtherMedicalServices" EntitySet="OtherMedicalServices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HealthSupportDBModelStoreContainer" CdmEntityContainer="HealthSupportDBEntities">
+          <EntitySetMapping Name="AssignedDoctors">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.AssignedDoctor">
+              <MappingFragment StoreEntitySet="AssignedDoctors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="DoctorFee" ColumnName="DoctorFee" />
+                <ScalarProperty Name="DoctorReturningFee" ColumnName="DoctorReturningFee" />
+                <ScalarProperty Name="Sat" ColumnName="Sat" />
+                <ScalarProperty Name="Sun" ColumnName="Sun" />
+                <ScalarProperty Name="Mon" ColumnName="Mon" />
+                <ScalarProperty Name="Tue" ColumnName="Tue" />
+                <ScalarProperty Name="Wed" ColumnName="Wed" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+                <ScalarProperty Name="Fri" ColumnName="Fri" />
+                <ScalarProperty Name="SatTime" ColumnName="SatTime" />
+                <ScalarProperty Name="SunTime" ColumnName="SunTime" />
+                <ScalarProperty Name="MonTime" ColumnName="MonTime" />
+                <ScalarProperty Name="TueTime" ColumnName="TueTime" />
+                <ScalarProperty Name="WedTime" ColumnName="WedTime" />
+                <ScalarProperty Name="ThuTime" ColumnName="ThuTime" />
+                <ScalarProperty Name="FriTime" ColumnName="FriTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookAppointments">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.BookAppointment">
+              <MappingFragment StoreEntitySet="BookAppointment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="ChamberId" ColumnName="ChamberId" />
+                <ScalarProperty Name="ChamberName" ColumnName="ChamberName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Schedule" ColumnName="Schedule" />
+                <ScalarProperty Name="AppointDate" ColumnName="AppointDate" />
+                <ScalarProperty Name="AppointPrice" ColumnName="AppointPrice" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="TrxId" ColumnName="TrxId" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiagnosticServices">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.DiagnosticService">
+              <MappingFragment StoreEntitySet="DiagnosticServices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorAppointOrders">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.DoctorAppointOrder">
+              <MappingFragment StoreEntitySet="DoctorAppointOrder">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ManageAppointId" ColumnName="ManageAppointId" />
+                <ScalarProperty Name="AppointAmount" ColumnName="AppointAmount" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="TrxId" ColumnName="TrxId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="RemainingAppoint" ColumnName="RemainingAppoint" />
+                <ScalarProperty Name="TotalAppoint" ColumnName="TotalAppoint" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="BmdcReg" ColumnName="BmdcReg" />
+                <ScalarProperty Name="OtherSpecification" ColumnName="OtherSpecification" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="PasswordVerified" ColumnName="PasswordVerified" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AccountCreatedDate" ColumnName="AccountCreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorsChambers">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.DoctorsChamber">
+              <MappingFragment StoreEntitySet="DoctorsChambers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="ChamberName" ColumnName="ChamberName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="ReturningFee" ColumnName="ReturningFee" />
+                <ScalarProperty Name="Sat" ColumnName="Sat" />
+                <ScalarProperty Name="Sun" ColumnName="Sun" />
+                <ScalarProperty Name="Mon" ColumnName="Mon" />
+                <ScalarProperty Name="Tue" ColumnName="Tue" />
+                <ScalarProperty Name="Wed" ColumnName="Wed" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+                <ScalarProperty Name="Fri" ColumnName="Fri" />
+                <ScalarProperty Name="SatTime" ColumnName="SatTime" />
+                <ScalarProperty Name="SunTime" ColumnName="SunTime" />
+                <ScalarProperty Name="MonTime" ColumnName="MonTime" />
+                <ScalarProperty Name="TueTime" ColumnName="TueTime" />
+                <ScalarProperty Name="WedTime" ColumnName="WedTime" />
+                <ScalarProperty Name="ThuTime" ColumnName="ThuTime" />
+                <ScalarProperty Name="FriTime" ColumnName="FriTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorsSpecialities">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.DoctorsSpeciality">
+              <MappingFragment StoreEntitySet="DoctorsSpecialities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForgetPasswordVerifications">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ForgetPasswordVerification">
+              <MappingFragment StoreEntitySet="ForgetPasswordVerification">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="ContactPersonMobileNo" ColumnName="ContactPersonMobileNo" />
+                <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumComments">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ForumComment">
+              <MappingFragment StoreEntitySet="ForumComments">
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="ForumPostId" ColumnName="ForumPostId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumPosts">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ForumPost">
+              <MappingFragment StoreEntitySet="ForumPosts">
+                <ScalarProperty Name="ForumPostId" ColumnName="ForumPostId" />
+                <ScalarProperty Name="TopicCategoryId" ColumnName="TopicCategoryId" />
+                <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HospitalServices">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.HospitalService">
+              <MappingFragment StoreEntitySet="HospitalServices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainAdmins">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.MainAdmin">
+              <MappingFragment StoreEntitySet="MainAdmin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManageAppointments">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ManageAppointment">
+              <MappingFragment StoreEntitySet="ManageAppointment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SatCapacity" ColumnName="SatCapacity" />
+                <ScalarProperty Name="SunCapacity" ColumnName="SunCapacity" />
+                <ScalarProperty Name="MonCapacity" ColumnName="MonCapacity" />
+                <ScalarProperty Name="TueCapacity" ColumnName="TueCapacity" />
+                <ScalarProperty Name="WedCapacity" ColumnName="WedCapacity" />
+                <ScalarProperty Name="ThuCapacity" ColumnName="ThuCapacity" />
+                <ScalarProperty Name="FriCapacity" ColumnName="FriCapacity" />
+                <ScalarProperty Name="SatAvailableAppoint" ColumnName="SatAvailableAppoint" />
+                <ScalarProperty Name="SunAvailableAppoint" ColumnName="SunAvailableAppoint" />
+                <ScalarProperty Name="MonAvailableAppoint" ColumnName="MonAvailableAppoint" />
+                <ScalarProperty Name="TueAvailableAppoint" ColumnName="TueAvailableAppoint" />
+                <ScalarProperty Name="WedAvailableAppoint" ColumnName="WedAvailableAppoint" />
+                <ScalarProperty Name="ThuAvailableAppoint" ColumnName="ThuAvailableAppoint" />
+                <ScalarProperty Name="FriAvailableAppoint" ColumnName="FriAvailableAppoint" />
+                <ScalarProperty Name="OnlineAppoint" ColumnName="OnlineAppoint" />
+                <ScalarProperty Name="UsedAppoint" ColumnName="UsedAppoint" />
+                <ScalarProperty Name="TotalAvailableAppoint" ColumnName="TotalAvailableAppoint" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="DoctorChamberId" ColumnName="DoctorChamberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalAccounts">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.MedicalAccount">
+              <MappingFragment StoreEntitySet="MedicalAccounts">
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="MedicalType" ColumnName="MedicalType" />
+                <ScalarProperty Name="MedicalName" ColumnName="MedicalName" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="ContactPersonPosition" ColumnName="ContactPersonPosition" />
+                <ScalarProperty Name="ContactPersonPhoneNo" ColumnName="ContactPersonPhoneNo" />
+                <ScalarProperty Name="MedicalEmail" ColumnName="MedicalEmail" />
+                <ScalarProperty Name="MedicalContact1" ColumnName="MedicalContact1" />
+                <ScalarProperty Name="MedicalContact2" ColumnName="MedicalContact2" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AmbulanceService" ColumnName="AmbulanceService" />
+                <ScalarProperty Name="AmbulanceContact" ColumnName="AmbulanceContact" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AccountCreatedDate" ColumnName="AccountCreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalConsultants">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.MedicalConsultant">
+              <MappingFragment StoreEntitySet="MedicalConsultants">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalEmergencies">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.MedicalEmergency">
+              <MappingFragment StoreEntitySet="MedicalEmergency">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TwentyFourService" ColumnName="TwentyFourService" />
+                <ScalarProperty Name="EmergencyService" ColumnName="EmergencyService" />
+                <ScalarProperty Name="AmbulanceService" ColumnName="AmbulanceService" />
+                <ScalarProperty Name="SeatCapacity" ColumnName="SeatCapacity" />
+                <ScalarProperty Name="EmergencyPhoneNo" ColumnName="EmergencyPhoneNo" />
+                <ScalarProperty Name="EmergencyPhoneNo2" ColumnName="EmergencyPhoneNo2" />
+                <ScalarProperty Name="AmbulancePhoneNo" ColumnName="AmbulancePhoneNo" />
+                <ScalarProperty Name="AmbulancePhoneNo2" ColumnName="AmbulancePhoneNo2" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalFacilities">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.MedicalFacility">
+              <MappingFragment StoreEntitySet="MedicalFacilities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtherMedicalServices">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.OtherMedicalService">
+              <MappingFragment StoreEntitySet="OtherMedicalServices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TopicCategories">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.TopicCategory">
+              <MappingFragment StoreEntitySet="TopicCategories">
+                <ScalarProperty Name="TopicCategoryId" ColumnName="TopicCategoryId" />
+                <ScalarProperty Name="TopicCategoryName" ColumnName="TopicCategoryName" />
+                <ScalarProperty Name="CountCategory" ColumnName="CountCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAccounts">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.UserAccount">
+              <MappingFragment StoreEntitySet="UserAccounts">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="WantToGiveBlood" ColumnName="WantToGiveBlood" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChambersAppointOrders">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ChambersAppointOrder">
+              <MappingFragment StoreEntitySet="ChambersAppointOrder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="MedicalName" ColumnName="MedicalName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentsVMs">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.CommentsVM">
+              <MappingFragment StoreEntitySet="CommentsVM">
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ForumPostId" ColumnName="ForumPostId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorChamberOrders">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.DoctorChamberOrder">
+              <MappingFragment StoreEntitySet="DoctorChamberOrder">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="DoctorChamberId" ColumnName="DoctorChamberId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MedicalName" ColumnName="MedicalName" />
+                <ScalarProperty Name="ChamberName" ColumnName="ChamberName" />
+                <ScalarProperty Name="AppointAmount" ColumnName="AppointAmount" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="TrxId" ColumnName="TrxId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorChambersAppointOrders">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.DoctorChambersAppointOrder">
+              <MappingFragment StoreEntitySet="DoctorChambersAppointOrder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="ChamberName" ColumnName="ChamberName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumPostsVMs">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ForumPostsVM">
+              <MappingFragment StoreEntitySet="ForumPostsVM">
+                <ScalarProperty Name="ForumPostId" ColumnName="ForumPostId" />
+                <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="TopicCategoryId" ColumnName="TopicCategoryId" />
+                <ScalarProperty Name="TopicCategoryName" ColumnName="TopicCategoryName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManageAppointVMs">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ManageAppointVM">
+              <MappingFragment StoreEntitySet="ManageAppointVM">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SatCapacity" ColumnName="SatCapacity" />
+                <ScalarProperty Name="SunCapacity" ColumnName="SunCapacity" />
+                <ScalarProperty Name="MonCapacity" ColumnName="MonCapacity" />
+                <ScalarProperty Name="TueCapacity" ColumnName="TueCapacity" />
+                <ScalarProperty Name="WedCapacity" ColumnName="WedCapacity" />
+                <ScalarProperty Name="ThuCapacity" ColumnName="ThuCapacity" />
+                <ScalarProperty Name="FriCapacity" ColumnName="FriCapacity" />
+                <ScalarProperty Name="SatAvailableAppoint" ColumnName="SatAvailableAppoint" />
+                <ScalarProperty Name="SunAvailableAppoint" ColumnName="SunAvailableAppoint" />
+                <ScalarProperty Name="MonAvailableAppoint" ColumnName="MonAvailableAppoint" />
+                <ScalarProperty Name="TueAvailableAppoint" ColumnName="TueAvailableAppoint" />
+                <ScalarProperty Name="WedAvailableAppoint" ColumnName="WedAvailableAppoint" />
+                <ScalarProperty Name="ThuAvailableAppoint" ColumnName="ThuAvailableAppoint" />
+                <ScalarProperty Name="FriAvailableAppoint" ColumnName="FriAvailableAppoint" />
+                <ScalarProperty Name="OnlineAppoint" ColumnName="OnlineAppoint" />
+                <ScalarProperty Name="UsedAppoint" ColumnName="UsedAppoint" />
+                <ScalarProperty Name="TotalAvailableAppoint" ColumnName="TotalAvailableAppoint" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="DoctorChamberId" ColumnName="DoctorChamberId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="AppointAmount" ColumnName="AppointAmount" />
+                <ScalarProperty Name="RemainingAppoint" ColumnName="RemainingAppoint" />
+                <ScalarProperty Name="TotalAppoint" ColumnName="TotalAppoint" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewDoctorChambers">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ViewDoctorChamber">
+              <MappingFragment StoreEntitySet="ViewDoctorChamber">
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="OtherSpecification" ColumnName="OtherSpecification" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ChamberName" ColumnName="ChamberName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="ReturningFee" ColumnName="ReturningFee" />
+                <ScalarProperty Name="Sat" ColumnName="Sat" />
+                <ScalarProperty Name="Sun" ColumnName="Sun" />
+                <ScalarProperty Name="Mon" ColumnName="Mon" />
+                <ScalarProperty Name="Tue" ColumnName="Tue" />
+                <ScalarProperty Name="Wed" ColumnName="Wed" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+                <ScalarProperty Name="Fri" ColumnName="Fri" />
+                <ScalarProperty Name="SatTime" ColumnName="SatTime" />
+                <ScalarProperty Name="SunTime" ColumnName="SunTime" />
+                <ScalarProperty Name="MonTime" ColumnName="MonTime" />
+                <ScalarProperty Name="TueTime" ColumnName="TueTime" />
+                <ScalarProperty Name="WedTime" ColumnName="WedTime" />
+                <ScalarProperty Name="ThuTime" ColumnName="ThuTime" />
+                <ScalarProperty Name="FriTime" ColumnName="FriTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewDoctors">
+            <EntityTypeMapping TypeName="HealthSupportDBModel.ViewDoctor">
+              <MappingFragment StoreEntitySet="ViewDoctors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="BmdcReg" ColumnName="BmdcReg" />
+                <ScalarProperty Name="OtherSpecification" ColumnName="OtherSpecification" />
+                <ScalarProperty Name="MedicalId" ColumnName="MedicalId" />
+                <ScalarProperty Name="MedicalName" ColumnName="MedicalName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="DoctorFee" ColumnName="DoctorFee" />
+                <ScalarProperty Name="DoctorReturningFee" ColumnName="DoctorReturningFee" />
+                <ScalarProperty Name="Sat" ColumnName="Sat" />
+                <ScalarProperty Name="Sun" ColumnName="Sun" />
+                <ScalarProperty Name="Mon" ColumnName="Mon" />
+                <ScalarProperty Name="Tue" ColumnName="Tue" />
+                <ScalarProperty Name="Wed" ColumnName="Wed" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+                <ScalarProperty Name="Fri" ColumnName="Fri" />
+                <ScalarProperty Name="SatTime" ColumnName="SatTime" />
+                <ScalarProperty Name="SunTime" ColumnName="SunTime" />
+                <ScalarProperty Name="MonTime" ColumnName="MonTime" />
+                <ScalarProperty Name="TueTime" ColumnName="TueTime" />
+                <ScalarProperty Name="WedTime" ColumnName="WedTime" />
+                <ScalarProperty Name="ThuTime" ColumnName="ThuTime" />
+                <ScalarProperty Name="FriTime" ColumnName="FriTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

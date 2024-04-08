@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3b21ac6b10bd4beab1f963cdd116fc19" Name="Diagram1">
+        <EntityTypeShape EntityType="HealthSupportDBModel.AssignedDoctor" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.BookAppointment" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.DiagnosticService" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.DoctorAppointOrder" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.Doctor" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.DoctorsChamber" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.DoctorsSpeciality" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ForgetPasswordVerification" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ForumComment" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ForumPost" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.HospitalService" Width="1.5" PointX="3" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.MainAdmin" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ManageAppointment" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.MedicalAccount" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.MedicalConsultant" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.MedicalEmergency" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.MedicalFacility" Width="1.5" PointX="3" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.OtherMedicalService" Width="1.5" PointX="3" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.TopicCategory" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.UserAccount" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ChambersAppointOrder" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.CommentsVM" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.DoctorChamberOrder" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.DoctorChambersAppointOrder" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ForumPostsVM" Width="1.5" PointX="11.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ManageAppointVM" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ViewDoctorChamber" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthSupportDBModel.ViewDoctor" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_AssignedDoctors_Doctors" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_AssignedDoctors_MedicalAccounts" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_DiagnosticServices_DiagnosticServices" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_DoctorsChambers_Doctors" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_ForumPosts_Doctors" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_ForumComments_ForumPosts" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_ForumPosts_MedicalAccounts" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_ForumPosts_TopicCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_ForumPosts_UserAccounts" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_HospitalServices_HospitalServices" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_MedicalConsultants_MedicalAccounts" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_MedicalFacilities_MedicalAccounts" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_MedicalServices_MedicalAccounts" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthSupportDBModel.FK_OtherMedicalServices_MedicalAccounts" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

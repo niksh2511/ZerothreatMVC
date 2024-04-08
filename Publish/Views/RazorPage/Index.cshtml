@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@using (Html.BeginForm("Demo", "RazorPage", FormMethod.Post, new { id = "contactForm" }))
+{
+    <div class="container mt-4 w-25">
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required="" value="">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div>
+            @ViewBag.RenderedTemplate
+        </div>
+    </div>
+}
+

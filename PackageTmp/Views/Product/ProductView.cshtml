@@ -1,0 +1,50 @@
+@using System.Web.UI.WebControls
+@model HealthSupportApp.Models.ProductModel.Product
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div>
+    <div id="validateRequest"></div>
+    @if (Model.ProductId > 0)
+    {
+        <div>
+            @Html.LabelFor(model => model.ProductName)
+            <h3>
+                @Model.ProductName
+            </h3>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ProductDescription)
+            <h3>
+                @Model.ProductDescription
+            </h3>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ProductCategory)
+            <h3>
+                @Model.ProductCategory
+            </h3>
+        </div>
+    }
+
+    else
+    {
+            <div class="text-center">
+                <span>No Product Found For Id : </span> @ViewBag.ProductId
+            </div>
+
+    }
+
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var url = decodeURIComponent(window.location.href).slice(decodeURIComponent(window.location.href).indexOf('?') + 1).split('&')[0].split('=')[1];
+            $('#validateRequest').html(url);
+        });
+
+        
+    </script>
+}
